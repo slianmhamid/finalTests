@@ -19,13 +19,19 @@ using std::vector;
 using std::list;
 
 
+/**
+ * Functor to compare two players using  (>) operator
+ */
 struct CompareTwoPlayers {
       bool operator()(const shared_ptr<Player>& player1, const shared_ptr<Player>& player2) const {
             return *player1 > *player2;
       }
 };
 
-
+/**
+ * The MatamStory class handles the game logic, including
+ * player management, event processing, and turn/round control.
+ */
 class MatamStory {
 
 public:
@@ -41,6 +47,86 @@ public:
       */
       MatamStory(std::istream& eventsStream, std::istream& playersStream);
 
+
+      /**
+       * Initializes players from the given input stream and populates the players list.
+       *
+       * @param playersStream - input stream with player information
+       */
+      void getPlayersReady(std::istream& playersStream);
+
+      /**
+       * Returns a shared pointer to a CharacterRole object matching the given role name.
+       *
+       * @param role - string representing the role name (e.g., "Warrior")
+       * @return shared_ptr to the corresponding CharacterRole
+       */
+      shared_ptr<CharacterRole> getCharacterRoleReady(const std::string& role);
+
+      /**
+       * Returns a shared pointer to a CharacterType object matching the given type name.
+       *
+       * @param type - string representing the character type (e.g., "Responsible")
+       * @return shared_ptr to the corresponding CharacterType
+       */
+      shared_ptr<CharacterType> getCharacterTypeReady(const std::string& type);
+
+      /**
+       * Checks if a word contains only English alphabet letters.
+       *
+       * @param word - the word to validate
+       * @return true if valid, false otherwise
+       */
+      bool areLettersApartOfTheAlphabet(const std::string& word);
+
+
+      /**
+       * Parses a list of event strings and fills the event queue accordingly.
+       *
+       * @param strings - deque of strings representing event data
+       */
+      void getEventsReady(std::deque<string> &strings);
+
+      /**
+       * Creates a specific Encounter object from a string description.
+       *
+       * @param event - string representing the event type
+       * @return shared_ptr to the constructed Encounter
+       */
+      std::shared_ptr<Encounter> getEncounterReady(const std::string& event);
+
+      /**
+       * Populates a deque of strings by reading lines from an input stream.
+       *
+       * @param stream - input stream to read from
+       * @param strings - deque to be populated with the lines from the stream
+       */
+      void createDequeFromStream(std::istream &stream, std::deque<std::string> &strings);
+
+      /**
+       * Returns a non-pack event (like a single monster) from a string.
+       *
+       * @param event - string description of the event
+       * @return shared_ptr to the Event
+       */
+      shared_ptr<Event> getNonPackReady(const std::string& event);
+
+      /**
+       * Builds a Pack event from the deque of event descriptions starting at a given index.
+       *
+       * @param deque - deque of event strings
+       * @param index - reference to the current index in the deque
+       * @return shared_ptr to the Pack
+       */
+      shared_ptr<Pack> getPackReady(const std::deque<std::string> &deque,int &index);
+
+      /**
+       * Checks if all players are dead.
+       *
+       * @return true if all players have 0 health, false otherwise
+       */
+      bool areAllPlayersDead() const;
+
       /**
        * Plays the entire game
        *
@@ -48,22 +134,25 @@ public:
       */
       void play();
 
-      void getPlayersReady(std::istream& playersStream);
-      shared_ptr<CharacterRole> getCharacterRoleReady(const std::string& role);
-      shared_ptr<CharacterType> getCharacterTypeReady(const std::string& type);
-      bool areLettersApartOfTheAlphabet(const std::string& word);
-
-      void getEventsReady(std::deque<string> &strings);
-      std::shared_ptr<Encounter> getEncounterReady(const std::string& event);
-      void createDequeFromStream(std::istream &stream, std::deque<std::string> &strings);
-      shared_ptr<Event> getNonPackReady(const std::string& event);
-      shared_ptr<Pack> getPackReady(const std::deque<std::string> &deque,int &index);
-      bool areAllPlayersDead() const;
-
 private:
+      /**
+       * Vector containing all game events, in order.
+       */
       vector<shared_ptr<Event>> events;
+
+      /**
+       * Vector of all players participating in the game.
+       */
       vector<shared_ptr<Player>> players;
+
+      /**
+       * A pointer to the winning player, if one exists.
+       */
       shared_ptr<Player> gameWinner;
+
+      /**
+       * Current turn index (incremented every turn).
+       */
       unsigned int m_turnIndex;
 
 
