@@ -23,7 +23,7 @@ static const int MAX_NUM_PLAYERS = 6;
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
       std::deque<std::string> temp;
-      dequeFromStream(eventsStream,temp);
+      createDequeFromStream(eventsStream,temp);
 
       /*===== Open and read events file =====*/
 
