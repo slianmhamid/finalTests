@@ -8,11 +8,11 @@ std::string CharacterRole::getRoleName() const {
 }
 
 int CharacterRole::getMaxHP() const {
-    return 10;
+    return 100;
 }
 
 int CharacterRole::getCoins() const {
-    return 100;
+    return 10;
 }
 
 int CharacterRole::getCombatPower(const Player& player) const {
