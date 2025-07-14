@@ -37,8 +37,8 @@ int Player::getCoins() const {
 string Player::getDescription() const {
       return playerName + ", " + getRoleName() +
             " with " + getTypeName() + " character" +
-            " (level" + std:: to_string(playerLevel) +
-            ", force" + std::to_string(playerForce) + ")";
+            " (level " + std:: to_string(playerLevel) +
+            ", force " + std::to_string(playerForce) + ")";
 }
 
 
