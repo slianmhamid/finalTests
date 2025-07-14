@@ -33,4 +33,5 @@ add_executable(finalTests
     Utilities.cpp
     Utilities.h
         MatamStory.cpp
-        MatamStory.h)
+        MatamStory.h
+        main.cpp)

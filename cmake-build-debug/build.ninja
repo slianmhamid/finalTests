@@ -126,6 +126,13 @@ build CMakeFiles/finalTests.dir/MatamStory.cpp.obj: CXX_COMPILER__finalTests_uns
   OBJECT_DIR = CMakeFiles\finalTests.dir
   OBJECT_FILE_DIR = CMakeFiles\finalTests.dir
 
+build CMakeFiles/finalTests.dir/main.cpp.obj: CXX_COMPILER__finalTests_unscanned_Debug C$:/Users/PC/Downloads/finalTests/main.cpp || cmake_object_order_depends_target_finalTests
+  DEP_FILE = CMakeFiles\finalTests.dir\main.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/PC/Downloads/finalTests/. -IC:/Users/PC/Downloads/finalTests/Events -IC:/Users/PC/Downloads/finalTests/Players
+  OBJECT_DIR = CMakeFiles\finalTests.dir
+  OBJECT_FILE_DIR = CMakeFiles\finalTests.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target finalTests
@@ -134,7 +141,7 @@ build CMakeFiles/finalTests.dir/MatamStory.cpp.obj: CXX_COMPILER__finalTests_uns
 #############################################
 # Link the executable finalTests.exe
 
-build finalTests.exe: CXX_EXECUTABLE_LINKER__finalTests_Debug CMakeFiles/finalTests.dir/Events/Encounter.cpp.obj CMakeFiles/finalTests.dir/Events/SpecialEvents.cpp.obj CMakeFiles/finalTests.dir/Players/Archer.cpp.obj CMakeFiles/finalTests.dir/Players/CharacterRole.cpp.obj CMakeFiles/finalTests.dir/Players/Magician.cpp.obj CMakeFiles/finalTests.dir/Players/Player.cpp.obj CMakeFiles/finalTests.dir/Players/Responsible.cpp.obj CMakeFiles/finalTests.dir/Players/RiskTaking.cpp.obj CMakeFiles/finalTests.dir/Players/Warrior.cpp.obj CMakeFiles/finalTests.dir/Utilities.cpp.obj CMakeFiles/finalTests.dir/MatamStory.cpp.obj
+build finalTests.exe: CXX_EXECUTABLE_LINKER__finalTests_Debug CMakeFiles/finalTests.dir/Events/Encounter.cpp.obj CMakeFiles/finalTests.dir/Events/SpecialEvents.cpp.obj CMakeFiles/finalTests.dir/Players/Archer.cpp.obj CMakeFiles/finalTests.dir/Players/CharacterRole.cpp.obj CMakeFiles/finalTests.dir/Players/Magician.cpp.obj CMakeFiles/finalTests.dir/Players/Player.cpp.obj CMakeFiles/finalTests.dir/Players/Responsible.cpp.obj CMakeFiles/finalTests.dir/Players/RiskTaking.cpp.obj CMakeFiles/finalTests.dir/Players/Warrior.cpp.obj CMakeFiles/finalTests.dir/Utilities.cpp.obj CMakeFiles/finalTests.dir/MatamStory.cpp.obj CMakeFiles/finalTests.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\finalTests.dir
